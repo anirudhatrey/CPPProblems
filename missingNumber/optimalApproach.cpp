@@ -1,5 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
+int optimalApproach(int arr[], int n)
+{
+    int missingNumber = 0;
+
+    int SumOfArr = n*(n+1)/2;
+int sum=0;
+    for(int i = 0;i<n;i++){
+        sum+=arr[i];
+    }
+missingNumber=SumOfArr-sum;
+    return missingNumber;
+}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -16,19 +28,6 @@ int main()
         cin >> arr[i];
     }
     
-    int flag;
-    for (int i = 1; i < n; i++)
-    {
-        flag = 0;
-        for (int j = 0; j < n; i++)
-        {
-            if (arr[j] == i)
-            {
-                flag=1;
-                break;
-            }
-        }
-        cout << i;
-    }
+    cout<<optimalApproach(arr,n);
     return 0;
 }
