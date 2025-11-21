@@ -12,6 +12,21 @@ int sum=0;
 missingNumber=SumOfArr-sum;
     return missingNumber;
 }
+
+int bestApproach(int arr[], int n)
+{
+    int xor1 = 0;
+
+    int xor2 = 0;
+int sum=0;
+    for(int i = 0;i<n;i++){
+        xor1^=i;
+        xor2^=arr[i];
+    }
+    xor1^=n;
+    int missingNumber=xor1^xor2;
+    return missingNumber;
+}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -28,6 +43,7 @@ int main()
         cin >> arr[i];
     }
     
-    cout<<optimalApproach(arr,n);
+    cout<<"First Approach, Missing Number is"<<optimalApproach(arr,n)<<endl;
+    cout<<"Second Approach, Missing Number is"<<bestApproach(arr,n);
     return 0;
 }
