@@ -32,5 +32,5 @@ int main()
     int sum = 0;
    pair<int,int> a = twosum(arr,n,k);
    cout<< a.first<<", "<<a.second;
-    return 0
+    return 0;
 }
