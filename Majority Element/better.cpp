@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
-//Given an array nums consisting of only 0, 1, or 2. Sort the array in non-decreasing order. The sorting must be done in-place, without making a copy of the original array.
+
 pair<int,int> twosum(int arr[], int n, int k){
+    unordered_map<int,int> mp;
     for(int i = 0; i < n ; i ++){
-        for(int j = i; j < n ; j ++){
-            if(arr[i]+arr[j] == k){
-                return   make_pair(i+1,j+1);
-            }
+        if(mp.find(k-arr[i]) != mp.end()){
+            return make_pair(mp[(k-arr[i])]+1,i+1);
+        }
+        else{
+            mp[arr[i]]=i;
         }
     }
 return make_pair(-1,-1);
