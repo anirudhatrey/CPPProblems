@@ -1,36 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-//Given an array nums consisting of only 0, 1, or 2. Sort the array in non-decreasing order. The sorting must be done in-place, without making a copy of the original array.
+//Given an integer array nums of size n, return the majority element of the array.
+//The majority element of an array is an element that appears more than n/2 times in the array. The array is guaranteed to have a majority element.
 
-int sort012(int arr[], int n, int k)
-{
-    int zeroCount = 0, oneCount = 0, twoCount = 0;
-    for (int i = 0; i < n;i++)
-    {
-        if (arr[i] == 0)
-        {
-            zeroCount++;
-        }
-        else if (arr[i] == 1)
-        {
-            oneCount++;
-        }
-        else if (arr[i] == 2)
-        {
-            twoCount++;
-        }
+int twosum(int arr[], int n, int k){
+    unordered_map<int, int> mp;
+    for(int i = 0; i < n ; i ++){
+        mp[arr[i]]++;
+        if(mp[arr[i]]>=n/2)
+        return arr[i];
     }
-
-    for (int i = 0; i < n; i++)
-    {
-        arr[i]=i<zeroCount?0:i<zeroCount+oneCount?1:2;
-    }
-
-    for (int i = 0; i < n;i++)
-    {
-        cout<<arr[i];
-    }
-    return 0;
+return -1;
 }
 
 int main()
@@ -51,6 +31,7 @@ int main()
 
     cin >> k;
     int sum = 0;
-    sort012(arr, n, k);
+   int a = twosum(arr,n,k);
+   cout<< a;
     return 0;
 }
