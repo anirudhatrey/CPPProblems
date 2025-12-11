@@ -4,26 +4,28 @@ using namespace std;
 
 int sort012(int arr[], int n, int k)
 {
-    int zeroCount = 0, oneCount = 0, twoCount = 0;
-    for (int i = 0; i < n;i++)
+    int low = 0, mid = 0, high = n-1, temp;
+    for (int i = 0; mid<high;i++)
     {
-        if (arr[i] == 0)
+        if (arr[mid] == 0)
         {
-            zeroCount++;
+            temp=arr[low];
+            arr[low]=arr[mid];
+            arr[mid]=temp;
+            low++;
+            mid++;
         }
-        else if (arr[i] == 1)
+        else if (arr[mid] == 1)
         {
-            oneCount++;
+            mid++;
         }
-        else if (arr[i] == 2)
+        else if (arr[mid] == 2)
         {
-            twoCount++;
+            temp=arr[high];
+            arr[high]=arr[mid];
+            arr[mid]=temp;
+            high--;
         }
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        arr[i]=i<zeroCount?0:i<zeroCount+oneCount?1:2;
     }
 
     for (int i = 0; i < n;i++)
