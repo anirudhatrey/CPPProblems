@@ -3,7 +3,7 @@ using namespace std;
 //Given an integer array nums of size n, return the majority element of the array.
 //The majority element of an array is an element that appears more than n/2 times in the array. The array is guaranteed to have a majority element.
 
-int twosum(int arr[], int n, int k){
+int majorityElement(int arr[], int n, int k){
     unordered_map<int, int> mp;
     for(int i = 0; i < n ; i ++){
         mp[arr[i]]++;
@@ -31,7 +31,7 @@ int main()
 
     cin >> k;
     int sum = 0;
-   int a = twosum(arr,n,k);
+   int a = majorityElement(arr,n,k);
    cout<< a;
     return 0;
 }
