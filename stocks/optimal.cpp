@@ -1,35 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int sort012(int arr[], int n, int k)
+int stocks(int arr[], int n, int k)
 {
     int zeroCount = 0, oneCount = 0, twoCount = 0;
-    for (int i = 0; i < n;i++)
-    {
-        if (arr[i] == 0)
-        {
-            zeroCount++;
-        }
-        else if (arr[i] == 1)
-        {
-            oneCount++;
-        }
-        else if (arr[i] == 2)
-        {
-            twoCount++;
-        }
-    }
-
     for (int i = 0; i < n; i++)
     {
-        arr[i]=i<zeroCount?0:i<zeroCount+oneCount?1:2;
+        for (int j = i; j < n; j++)
+        {
+            if (zeroCount < arr[j] - arr[i])
+            {
+                zeroCount = arr[j] - arr[i];
+            }
+        }
     }
 
-    for (int i = 0; i < n;i++)
-    {
-        cout<<arr[i];
-    }
-    return 0;
+    
+   cout<<zeroCount;
 }
 
 int main()
@@ -43,6 +30,7 @@ int main()
     cin >> n;
     int arr[n];
 
+    
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -50,6 +38,6 @@ int main()
 
     cin >> k;
     int sum = 0;
-    sort012(arr, n, k);
+    stocks(arr, n, k);
     return 0;
 }
