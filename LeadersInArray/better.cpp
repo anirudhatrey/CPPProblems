@@ -1,16 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-//Given an integer array nums of size n, return the majority element of the array.
-//The majority element of an array is an element that appears more than n/2 times in the array. The array is guaranteed to have a majority element.
 
-int majorityElement(int arr[], int n, int k){
-    unordered_map<int, int> mp;
-    for(int i = 0; i < n ; i ++){
-        mp[arr[i]]++;
-        if(mp[arr[i]]>=n/2)
-        return arr[i];
+int leadersInArray(int arr[], int n, int k)
+{
+    int max = arr[n-1];
+    int count = 1;
+    int arr2[n];
+    arr2[0] = arr[n - 1];
+    for (int i = n - 2, j = 1; i >= 0; i--)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+            arr2[j] = arr[i];
+            j++;
+            count++;
+        }
     }
-return -1;
+
+    for(int i=count-1; i>=0;i--)
+    {
+        cout<<arr2[i]<<" ";
+    }
+    return -1;
 }
 
 int main()
@@ -31,7 +43,6 @@ int main()
 
     cin >> k;
     int sum = 0;
-   int a = majorityElement(arr,n,k);
-   cout<< a;
+    int a = leadersInArray(arr, n, k);
     return 0;
 }

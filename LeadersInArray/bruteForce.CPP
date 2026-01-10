@@ -1,20 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
-//Given an integer array nums of size n, return the majority element of the array.
-//The majority element of an array is an element that appears more than n/2 times in the array. The array is guaranteed to have a majority element.
 
-int twosum(int arr[], int n, int k){
+int leadersInArray(int arr[], int n, int k)
+{
     int count = 0;
-    for(int i = 0; i < n ; i ++){
-        for(int j = i; j < n ; j ++){
-            if(arr[i]==arr[j]){
-                count++;
-                if(count>=n/2)
-                return   arr[i];
+    for (int i = 0; i < n - 1; i++)
+    {
+        int count = 0;
+        for (int j = i; j < n; j++)
+        {
+            if (arr[j] > arr[i])
+            {
+                count = 1;
+                break;
             }
         }
+        count == 0 && cout << arr[i] << " ";
     }
-return -1;
+    cout << arr[n - 1];
+    return -1;
 }
 
 int main()
@@ -35,7 +39,6 @@ int main()
 
     cin >> k;
     int sum = 0;
-   int a = twosum(arr,n,k);
-   cout<< a;
+    int a = leadersInArray(arr, n, k);
     return 0;
 }
