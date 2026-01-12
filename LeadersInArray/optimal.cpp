@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
-// Improvement - 2025-11-12
+
 using namespace std;
 
-pair<int,int> twosum(int arr[], int n, int k){
+pair<int,int> leadersInAnArray(int arr[], int n, int k){
     for(int i = 0; i < n ; i ++){
        
     }
