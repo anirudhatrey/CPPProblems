@@ -3,8 +3,17 @@
 using namespace std;
 
 pair<int,int> leadersInAnArray(int arr[], int n, int k){
-    for(int i = 0; i < n ; i ++){
-       
+    int ptr=n-2,max=arr[n-1],temp;
+    for(int i = n-2; i >=0 ; i --){
+       if(arr[i]>max)
+       {
+        arr[ptr] = arr[i];
+        ptr--;
+        max=arr[i];
+       }
+    }
+    for(int i = ptr+1 ; i < n ; i ++){
+        cout<<arr[i]<<" ";
     }
 return make_pair(-1,-1);
 }
@@ -27,7 +36,7 @@ int main()
 
     cin >> k;
     int sum = 0;
-   pair<int,int> a = twosum(arr,n,k);
-   cout<< a.first<<", "<<a.second;
+   pair<int,int> a = leadersInAnArray(arr,n,k);
+   
     return 0;
 }
