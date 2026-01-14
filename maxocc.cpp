@@ -21,7 +21,7 @@ for (int i = 0; i < N; i++)
 int minidx=INT_MAX;
 for (int i = 0; i < n ; i++)
 {
-    if(idx[a[i]]!=1){
+    if(idx[a[i]]!=-1){
         minidx=min(minidx,idx[a[i]]);
     }else{
         idx[a[i]]=i;

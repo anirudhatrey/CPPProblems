@@ -17,18 +17,21 @@ int main()
     }
     
     int flag;
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         flag = 0;
-        for (int j = 0; j < n; i++)
+        for (int j = 0; j < n; j++)
         {
             if (arr[j] == i)
             {
-                flag=1;
+                flag = 1;
                 break;
             }
         }
-        cout << i;
+        if (flag == 0)
+        {
+            cout << i << " ";
+        }
     }
     return 0;
 }

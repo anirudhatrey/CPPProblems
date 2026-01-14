@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 // Improvement - 2025-11-09
 using namespace std;
-int stocks(int arr[], int n, int k)
+int nextPermutation(int arr[], int n)
 {
     int breakpoint = -1, temp, closest = -1;
     
@@ -57,7 +57,7 @@ int main()
     freopen("../output.txt", "w", stdout);
 #endif
 
-    int n, ans = 0, k;
+    int n;
     cin >> n;
     int arr[n];
 
@@ -66,8 +66,6 @@ int main()
         cin >> arr[i];
     }
 
-    cin >> k;
-    int sum = 0;
-    stocks(arr, n, k);
+    nextPermutation(arr, n);
     return 0;
 }

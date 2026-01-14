@@ -27,10 +27,15 @@ if(a1.r1<101&&a1.r2<101&&a1.r3<101&&a2.r1<101&&a2.r2<101&&a2.r3<101&&a3.r1<101&&
  max=avg2>avg1?(avg2>avg3?avg2:avg3):(avg3>avg1?avg3:avg1);
  if(max<70){
      cout<<"all trainer are unfit";
- }else{avg1==max && avg1>70&& cout<<"trainer 1 is faster";
- avg2==max&&avg2>70&&cout<<"trainer 2 is faster";
- avg3==max&&avg3>70&&cout<<"trainer 3 is faster";
-}
+ }else{
+     if(avg1==max && avg1>=70){
+         cout<<"trainer 1 is faster";
+     }else if(avg2==max && avg2>=70){
+         cout<<"trainer 2 is faster";
+     }else if(avg3==max && avg3>=70){
+         cout<<"trainer 3 is faster";
+     }
+ }
     }else cout<<"invalid input";
     return 0;
 }

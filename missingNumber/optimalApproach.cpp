@@ -43,7 +43,7 @@ int main()
         cin >> arr[i];
     }
     
-    cout<<"First Approach, Missing Number is"<<optimalApproach(arr,n)<<endl;
-    cout<<"Second Approach, Missing Number is"<<bestApproach(arr,n);
+    cout<<"First Approach, Missing Number is: "<<optimalApproach(arr,n)<<endl;
+    cout<<"Second Approach, Missing Number is: "<<bestApproach(arr,n);
     return 0;
 }

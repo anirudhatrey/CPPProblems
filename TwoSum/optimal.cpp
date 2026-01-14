@@ -5,21 +5,21 @@ using namespace std;
 
 pair<int, int> twosum(int arr[], int n, int k)
 {
-    map<int, int> orignalIndex;
+    // Store original indices before sorting
+    vector<pair<int, int>> indexedArr;
     for (int i = 0; i < n; i++)
     {
-        orignalIndex[arr[i]] = i;
+        indexedArr.push_back({arr[i], i});
     }
-    sort(arr, arr + n);
+    sort(indexedArr.begin(), indexedArr.end());
 
-    for (int i = 0, j = n; i < j;)
+    for (int i = 0, j = n - 1; i < j;)
     {
-        if (arr[i] + arr[j] == k)
+        if (indexedArr[i].first + indexedArr[j].first == k)
         {
-            
-            return make_pair(orignalIndex[arr[i]], orignalIndex[arr[j]]);
+            return make_pair(indexedArr[i].second, indexedArr[j].second);
         }
-        else if (arr[i] + arr[j] > k)
+        else if (indexedArr[i].first + indexedArr[j].first > k)
         {
             j--;
         }
@@ -39,7 +39,7 @@ int main()
     freopen("../output.txt", "w", stdout);
 #endif
 
-    int n, ans = 0, k;
+    int n, k;
     cin >> n;
     int arr[n];
 
@@ -49,7 +49,6 @@ int main()
     }
 
     cin >> k;
-    int sum = 0;
     pair<int, int> a = twosum(arr, n, k);
     cout << a.first << ", " << a.second;
     return 0;
