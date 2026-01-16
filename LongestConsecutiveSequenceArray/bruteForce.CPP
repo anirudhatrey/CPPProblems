@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-//run two loops the inner loops navigates and checks for all numbers shorter and update the length
 int leadersInArray(int arr[], int n, int k)
 {
     int count = 0,maxLength=1,search=-1;
