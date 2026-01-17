@@ -16,7 +16,6 @@ int countChar(string ch, char c)
 
 void minimumCharactersForWords(int n, string arr[])
 {  
-    // iterator
     int i = 0;
     // array of all required letters
     char letters[100]={};
